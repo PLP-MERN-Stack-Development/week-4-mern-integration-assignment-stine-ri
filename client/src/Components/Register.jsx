@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Motion as Motion } from 'framer-Motion';
+import { motion } from 'framer-motion';
 
 import { register } from '../api/api';
 import { User, Mail, Lock, Check, Loader } from 'react-feather';
@@ -44,14 +44,14 @@ const Register = () => {
   };
 
   return (
-    <Motion.div
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4"
     >
       <div className="w-full max-w-md">
-        <Motion.div
+        <motion.div
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           className="bg-white rounded-xl shadow-lg p-8"
@@ -62,7 +62,7 @@ const Register = () => {
           </div>
 
           {success ? (
-            <Motion.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-8"
@@ -72,11 +72,11 @@ const Register = () => {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-1">Registration Successful!</h3>
               <p className="text-gray-500">Redirecting you to the home page...</p>
-            </Motion.div>
+            </motion.div>
           ) : (
             <>
               {error && (
-                <Motion.div
+                <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 flex items-center"
@@ -94,7 +94,7 @@ const Register = () => {
                     />
                   </svg>
                   {error}
-                </Motion.div>
+                </motion.div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -194,7 +194,7 @@ const Register = () => {
                   </label>
                 </div>
 
-                <Motion.button
+                <motion.button
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -209,7 +209,7 @@ const Register = () => {
                   ) : (
                     'Register'
                   )}
-                </Motion.button>
+                </motion.button>
               </form>
 
               <div className="mt-6 text-center">
@@ -222,9 +222,9 @@ const Register = () => {
               </div>
             </>
           )}
-        </Motion.div>
+        </motion.div>
       </div>
-    </Motion.div>
+    </motion.div>
   );
 };
 

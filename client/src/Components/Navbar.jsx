@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCurrentUser, logout } from '../api/api';
 import { Menu, X } from 'react-feather';
-import { motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 const Navbar = () => {
@@ -54,7 +54,7 @@ const Navbar = () => {
   };
 
   return (
-    <Motion.nav 
+    <motion.nav 
       initial="hidden"
       animate="visible"
       variants={navVariants}
@@ -64,18 +64,18 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Brand */}
-          <Motion.div 
+          <motion.div 
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
             <Link to="/" className="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">
               BlogApp
             </Link>
-          </Motion.div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Motion.div 
+            <motion.div 
               custom={0}
               variants={itemVariants}
               className="flex space-x-6"
@@ -104,9 +104,9 @@ const Navbar = () => {
                   Admin
                 </Link>
               )}
-            </Motion.div>
+            </motion.div>
 
-            <Motion.div 
+            <motion.div 
               custom={1}
               variants={itemVariants}
               className="flex items-center space-x-4 ml-4"
@@ -115,14 +115,14 @@ const Navbar = () => {
                 <>
                   <div className="flex items-center">
                     <span className="text-gray-700 mr-3">Hello, {user.name}</span>
-                    <Motion.button
+                    <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={handleLogout}
                       className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                     >
                       Logout
-                    </Motion.button>
+                    </motion.button>
                   </div>
                 </>
               ) : (
@@ -133,17 +133,17 @@ const Navbar = () => {
                   >
                     Login
                   </Link>
-                  <Motion.div whileHover={{ scale: 1.05 }}>
+                  <motion.div whileHover={{ scale: 1.05 }}>
                     <Link 
                       to="/register" 
                       className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
                     >
                       Register
                     </Link>
-                  </Motion.div>
+                  </motion.div>
                 </>
               )}
-            </Motion.div>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -164,7 +164,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <Motion.div 
+        <motion.div 
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -233,9 +233,9 @@ const Navbar = () => {
               </div>
             )}
           </div>
-        </Motion.div>
+        </motion.div>
       )}
-    </Motion.nav>
+    </motion.nav>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { login, getCurrentUser } from '../api/api';
 import { Lock, Mail, Loader } from 'react-feather';
 
@@ -47,14 +47,14 @@ const Login = () => {
   };
 
   return (
-    <Motion.div
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4"
     >
       <div className="w-full max-w-md">
-        <Motion.div
+        <motion.div
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           className="bg-white rounded-xl shadow-lg p-8"
@@ -65,7 +65,7 @@ const Login = () => {
           </div>
 
           {error && (
-            <Motion.div
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 flex items-center"
@@ -83,7 +83,7 @@ const Login = () => {
                 />
               </svg>
               {error}
-            </Motion.div>
+            </motion.div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -147,7 +147,7 @@ const Login = () => {
               </div>
             </div>
 
-            <Motion.button
+            <motion.button
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -162,7 +162,7 @@ const Login = () => {
               ) : (
                 'Sign in'
               )}
-            </Motion.button>
+            </motion.button>
           </form>
 
           <div className="mt-6 text-center">
@@ -173,9 +173,9 @@ const Login = () => {
               </a>
             </p>
           </div>
-        </Motion.div>
+        </motion.div>
       </div>
-    </Motion.div>
+    </motion.div>
   );
 };
 

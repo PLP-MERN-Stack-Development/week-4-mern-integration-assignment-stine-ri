@@ -9,20 +9,20 @@ const PostDetail = () => {
   const [error, setError] = useState('');
   const [commentText, setCommentText] = useState('');
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const getPost = async () => {
-      try {
-        const { data } = await fetchPost(id);
-        setPost(data);
-        setLoading(false);
-      } catch {
-        setError('Failed to load post');
-        setLoading(false);
-      }
-    };
-    getPost();
-  }, [id]);
+useEffect(() => {
+  const getPost = async () => {
+    try {
+      const { data } = await fetchPost(id);
+      console.log('API Response:', data); // Add this
+      setPost(data);
+      setLoading(false);
+    } catch {
+      setError('Failed to load post');
+      setLoading(false);
+    }
+  };
+  getPost();
+}, [id]);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();

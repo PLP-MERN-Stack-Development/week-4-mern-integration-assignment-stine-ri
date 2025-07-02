@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { getUser, updateUser, uploadProfileImage } from '../api/api';
 import { User, Mail, Camera, Loader, Check } from 'react-feather';
 import { useForm } from 'react-hook-form';
@@ -109,14 +109,14 @@ await updateUser(userId, formData);
   }
 
   return (
-    <Motion.div
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-md mx-auto">
-        <Motion.div
+        <motion.div
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           className="bg-white shadow-xl rounded-lg overflow-hidden"
@@ -127,7 +127,7 @@ await updateUser(userId, formData);
 
           <div className="p-6">
             {success ? (
-              <Motion.div
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-8"
@@ -137,11 +137,11 @@ await updateUser(userId, formData);
                 </div>
                 <h3 className="text-lg font-medium text-gray-900 mb-1">Profile Updated!</h3>
                 <p className="text-gray-500">Redirecting to your profile...</p>
-              </Motion.div>
+              </motion.div>
             ) : (
               <>
                 {error && (
-                  <Motion.div
+                  <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 flex items-center"
@@ -159,7 +159,7 @@ await updateUser(userId, formData);
                       />
                     </svg>
                     {error}
-                  </Motion.div>
+                  </motion.div>
                 )}
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -254,7 +254,7 @@ await updateUser(userId, formData);
                   </div>
 
                   <div className="flex justify-between">
-                    <Motion.button
+                    <motion.button
                       type="button"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -262,8 +262,8 @@ await updateUser(userId, formData);
                       className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
                     >
                       Cancel
-                    </Motion.button>
-                    <Motion.button
+                    </motion.button>
+                    <motion.button
                       type="submit"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -278,15 +278,15 @@ await updateUser(userId, formData);
                       ) : (
                         'Save Changes'
                       )}
-                    </Motion.button>
+                    </motion.button>
                   </div>
                 </form>
               </>
             )}
           </div>
-        </Motion.div>
+        </motion.div>
       </div>
-    </Motion.div>
+    </motion.div>
   );
 };
 
